@@ -11,14 +11,16 @@ docker compose start rabbitmq
 ```
 
 ## RabbitMQ
-* Managment Page: http://localhost:15672: check docker compose file for username and password
+
+- Managment Page: http://localhost:15672: check docker compose file for username and password
 
 ## Learning
-* What is volumes compose file?
-* What is difference b/w up and start?
-* Build vs Up / Start docker?
-* Docker image vs container?
-* What is @Bean?
+
+- What is volumes compose file?
+- What is difference b/w up and start?
+- Build vs Up / Start docker?
+- Docker image vs container?
+- What is @Bean?
 
 # Todo
-* 
+
