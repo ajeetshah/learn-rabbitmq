@@ -21,6 +21,8 @@ docker compose start rabbitmq
 - Build vs Up / Start docker?
 - Docker image vs container?
 - What is @Bean?
+- What is routing key?
+- What is @Service in SB?
 
 # Todo
 

@@ -1,4 +1,4 @@
-package com.example.service_one;
+package com.example.service_one.message;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
@@ -11,24 +11,25 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class MessagePublisher {
+public class MessageConfig {
 
-  static final String topicExchangeName = "service-one-exchange";
-  private static final String queueName = "service-one-queue";
+  public static final String EXCHANGE = "service-one-exchange";
+  private static final String QUEUE_NAME = "service-one-queue";
+  private static final String ROUTING_KEY_PATTERN = "foo.bar.#";
 
   @Bean
   Queue queue() {
-    return new Queue(queueName, false);
+    return new Queue(QUEUE_NAME, false);
   }
 
   @Bean
   TopicExchange exchange() {
-    return new TopicExchange(topicExchangeName);
+    return new TopicExchange(EXCHANGE);
   }
 
   @Bean
   Binding binding(Queue queue, TopicExchange exchange) {
-    return BindingBuilder.bind(queue).to(exchange).with("foo.bar.#");
+    return BindingBuilder.bind(queue).to(exchange).with(ROUTING_KEY_PATTERN);
   }
 
   @Bean
@@ -36,7 +37,7 @@ public class MessagePublisher {
       MessageListenerAdapter listenerAdapter) {
     SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
     container.setConnectionFactory(connectionFactory);
-    container.setQueueNames(queueName);
+    container.setQueueNames(QUEUE_NAME);
     container.setMessageListener(listenerAdapter);
     return container;
   }

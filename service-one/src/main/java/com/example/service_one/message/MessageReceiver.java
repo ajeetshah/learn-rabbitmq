@@ -1,4 +1,4 @@
-package com.example.service_one;
+package com.example.service_one.message;
 
 import java.util.concurrent.CountDownLatch;
 import org.springframework.stereotype.Component;
