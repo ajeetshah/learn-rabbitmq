@@ -13,7 +13,7 @@ public class MessageSender {
   private RabbitTemplate rabbitTemplate;
 
   public void send(String message) {
-    rabbitTemplate.convertAndSend(MessageConfig.EXCHANGE, ROUTING_KEY, message);
+    rabbitTemplate.convertAndSend(MessageConfig.EXCHANGE_NAME, ROUTING_KEY, message);
   }
 
 }

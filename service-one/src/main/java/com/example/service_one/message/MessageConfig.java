@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MessageConfig {
 
-  public static final String EXCHANGE = "service-one";
-  public static final String QUEUE_NAME = "service-one";
+  public static final String EXCHANGE_NAME = "logs_exchange";
+  private static final String QUEUE_NAME = "service_one";
   private static final String ROUTING_KEY_PATTERN = "routing.key.#";
 
   @Bean
@@ -21,7 +21,7 @@ public class MessageConfig {
 
   @Bean
   TopicExchange exchange() {
-    return new TopicExchange(EXCHANGE);
+    return new TopicExchange(EXCHANGE_NAME);
   }
 
   @Bean
