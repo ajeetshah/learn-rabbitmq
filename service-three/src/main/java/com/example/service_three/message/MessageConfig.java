@@ -1,4 +1,4 @@
-package com.example.service_one.message;
+package com.example.service_three.message;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Configuration;
 public class MessageConfig {
 
   public static final String EXCHANGE_NAME = "logs_exchange";
-  private static final String QUEUE_NAME = "service_one";
-  private static final String ROUTING_KEY_PATTERN = "service_one.#";
+  private static final String QUEUE_NAME = "service_three";
+  private static final String ROUTING_KEY_PATTERN = "service_three.#";
 
   @Bean
   Queue queue() {
