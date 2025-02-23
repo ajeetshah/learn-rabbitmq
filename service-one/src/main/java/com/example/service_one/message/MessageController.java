@@ -1,9 +1,9 @@
 package com.example.service_one.message;
 
-import java.util.concurrent.TimeUnit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,15 +18,12 @@ public class MessageController {
   private MessageReceiver messageReceiver;
 
   @GetMapping("/v1/send")
-  public String send() throws InterruptedException {
+  public String send(@RequestParam String message) throws InterruptedException {
     System.out.println("sending");
-
     for (int i = 0; i < 500000; i++) {
-      messageSender.send(String.format("Message %sth", i));
+      messageSender.send(String.format("%s %sth", message, i));
     }
-
-    boolean response = messageReceiver.getLatch().await(TIMEOUT, TimeUnit.MILLISECONDS);
-    return response ? "Success" : "Error";
+    return "Message sent";
   }
 
 }
