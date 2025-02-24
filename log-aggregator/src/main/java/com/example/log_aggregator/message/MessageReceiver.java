@@ -1,9 +1,11 @@
 package com.example.log_aggregator.message;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 @Component
+@Slf4j
 public class MessageReceiver {
 
   public static final String QUEUE_SERVICE_ONE = "service_one";
@@ -12,17 +14,17 @@ public class MessageReceiver {
 
   @RabbitListener(queues = {QUEUE_SERVICE_ONE})
   public void listenServiceOne(String message) {
-    System.out.printf("Message from Service One: %s%n", message);
+    log.info("Message from Service One: {}", message);
   }
 
   @RabbitListener(queues = {QUEUE_SERVICE_TWO})
   public void listenServiceTwo(String message) {
-    System.out.printf("Message from Service Two: %s%n", message);
+    log.info("Message from Service Two: {}", message);
   }
 
   @RabbitListener(queues = {QUEUE_SERVICE_THREE})
   public void listenServiceThree(String message) {
-    System.out.printf("Message from Service Three: %s%n", message);
+    log.info("Message from Service Three: {}", message);
   }
 
 }

@@ -1,8 +1,12 @@
 package com.example.service_three.message;
 
+import java.util.HashMap;
+import java.util.Map;
+import org.springframework.amqp.core.AmqpAdmin;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.QueueBuilder;
 import org.springframework.amqp.core.TopicExchange;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +20,7 @@ public class MessageConfig {
 
   @Bean
   Queue queue() {
-    return new Queue(QUEUE_NAME, false);
+    return new Queue(QUEUE_NAME, true);
   }
 
   @Bean

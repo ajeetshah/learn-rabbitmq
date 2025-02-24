@@ -16,7 +16,7 @@ public class MessageConfig {
 
   @Bean
   Queue queue() {
-    return new Queue(QUEUE_NAME, false);
+    return new Queue(QUEUE_NAME, true);
   }
 
   @Bean
