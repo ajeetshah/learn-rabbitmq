@@ -25,6 +25,6 @@ docker compose start rabbitmq
 - What is @Service in SB?
 
 # Todo
-- Setup logs in all 3 services
-- Send logs of all the 3 services to RabbitMQ
+- Send logs to files
+- Send logs to rabbitmq
 
